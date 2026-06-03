@@ -154,4 +154,67 @@ So now we link this to the trick in linear attention: $\text{sim}(Q,K) = \rho(Q)
 
 This is important because it separates similarity into 2 independent parts of Q and K. So the output is factorisable into components that depend on only Q or K.
 
+## Slidinng window attention
 
+* Why normal attention doesn't scale?
+
+In a standard transformer, attention is computed using: 
+
+$$ 
+\text{Attention}(Q,K,V) =
+\text{softmax}
+\left(
+\frac{QK^\top}{\sqrt{d_k}}
+\right)
+V
+$$
+
+Here, every token compares itself withh all other tokens. This produces a full matrix of interactions.
+
+Problem is:
+- time complexity = $O(n^2)$
+- memory complexity = $O(n^2)$
+
+So the core idea of sliding window attention is, instead of each token attends to ALL otkens, we change to each token only attends to nearby tokens.
+
+e.g. if window size = 2, the token at i attends to i-2, i-1, i, i+1, i+2
+
+So instead of having nxn comparison, we only have nxw comparison where w = window size.
+
+However the obvious trade-off is the attention now cannot see far away.
+
+Token i cannot directly see token i+100 for instance, this may lead to losing hidden pattern in language.
+
+But here's the trick, deeper layers expand the view.
+
+- Layer 1: Token sees nearby token, like the token at i sees the token at i-2, i-1, i, i+1, i+2
+- Layer 2: These tokens already saw their neighbour, so token i+1 already has information about token i, passing them to token i+3,i+4,... as well.
+
+So as new layers are built, the information spread.
+
+A more advanced variant of this would be the **dilated sliding window attention**.
+
+This zooms in on a problem of normal sliding window: have strong local understanding, but slow expansion of context.
+
+So the core idea of dilated sliding window attention is: instead of attending to every neighbour, we skip tokens with a fixed step size(dilation).
+
+e.g. window size = 2 and dilation = 2 means token at i attends to tokens at i-4, i-2, i, i+2, i+4.
+
+This keeps the same number of connection, but more spread out so the context coverage expand quicker than normal sliding.
+
+Using dilation still have the trade-off of losing local details as nearby tokens got skipped, and such sparse information will have less precise presentation.
+
+The best practical solution is to have some layer with normal sliding window and some layer with dilation also.
+
+This problem can also be addressed by what is called Global + Sliding Attention.
+
+The problem is even though information spread, some tokens cannot directly see each other which may lead to loss of important informations.
+
+So global + sliding window is a hybrid system that contain both local attention and global attention(special tokens).
+
+Global token is a special token in the sequence that can see the entire sequence, and seen by the entire sequence.
+
+e.g. CLS token, QA question token, manually selected tokens,...
+
+So the normal tokens can attend to their local tokens + global tokens where the global token acts like a central hub storing information about all token and spread them to all other tokens.
+This enables long range communication between layers.
