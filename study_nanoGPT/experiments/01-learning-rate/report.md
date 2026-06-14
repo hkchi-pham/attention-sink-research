@@ -13,7 +13,7 @@ n_embd = 64
 
 max_iters = 300
 
-## Learning rate = 1e-3
+## Learning rate = 1e-3 (Ideal)
 
 ### Results and Observations
 
@@ -36,9 +36,28 @@ But as training progresses loss also decreases, meaning the prediction gets bett
 
 The model learned stable representations and showed no evidence of overfitting within 300 iterations.
 
+## Learning rate = 1e-4
+
+### Results and Observations  
+
+**Training Loss**: 4.19 -> 3.81  
+The decrease shows that the model did learn but slower than when lr = 1e-3. This is expected as the learning rate is decreases. We can see form the graph the the gradient of the train loss curve decrease slower too, with a little bit more subtle jitter. Perhaps with the slower learning the stochastic noise from batch sampling becomes more visible.
+
+**Validation Loss**: 4.19 -> 3.83  
+The model also learned during validation too. Similar logic to the training loss, the learning is slower because the lr is decrease form 1e-3 to 1e-4.
+
+**Gradient Norm**:
+Inital ~ 1.04
+Peak ~ 1.60
+Final ~ 1.26
+
+The gradient norm graph also has an initial increase. However, the bump for 1e-3 is only up to the 60 iterations then the gradient starts to decrease. But here, the gradient continue to increase up to ~190 iteration, and the final gradient norm is still higher than the initial norm. Meaning that loss stays high for longer as the model learn slower, so the gradient hasn't been able to converge within 300 iterations.
+
+We can see that with a learning rate of 1e-4, the model is still able to learn even though at a much slower and inefficient rate..
+
 ## Learning rate = 1e-5
 
-### Results and Observation
+### Results and Observations
 
 **Training Loss**: 4.20 -> 4.15.  
 This is a huge difference to previous run of lr = 1e-3, here the model barely learn at all, it only decreased marginally over 300 iterations. From the graph, we can also see that the values jitter a lot instead of a smoother curve when lr = 1e-3. Because usually, the signal from learning is higher than the noise from batch sampling to the overall curvve moves downward clearly. Whereas when lr = 1e-5, the learning signal becomes too small, so the random variatio form diferent batches becomes comparable to the update size.
