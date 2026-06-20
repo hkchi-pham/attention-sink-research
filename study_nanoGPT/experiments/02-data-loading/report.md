@@ -38,4 +38,31 @@ o answer 'Whoop,
 Y:
  answer 'Whoop, 
  ```
+When I first learn transformer I imagined predictions to be like:  
+- input = sentence
+- output = next word
 
+But GPT actually learns:  
+- position 1 -> next token
+- position 2 -> next token
+- ...
+
+The prediction target it the train sentence shift by one to the left, so effectively the model is learning what is the next token based on the current tokens.  
+For a block size 16, there will be 16 predictions every forward pass
+
+## Randomness check
+I want to see the randomness in the batches
+### Result and Observation
+```
+for _ in range(5):
+    X,Y = get_batch("train")
+    print(X[0][:20])
+
+tensor([ 6,  0, 21, 57,  1, 39,  1, 44, 53, 59, 50,  1, 58, 56, 39, 47])
+tensor([42, 63, 12,  0,  0, 15, 27, 30, 21, 27, 24, 13, 26, 33, 31, 10])
+tensor([ 1, 61, 53, 59, 50, 42,  1, 39, 57, 57, 39, 63,  6,  1, 54, 56])
+tensor([39, 54, 54,  5, 42,  1, 53, 59, 58,  1, 39, 52, 42,  1, 42, 56])
+tensor([52, 42,  1, 57, 43, 47, 64, 43,  1, 46, 47, 51, 57, 43, 50, 44])
+```
+We can clearly see that every batch has a different starting position. Even though if we generate more batch than the block size, the first position will get repeated, this is often but repeating the whole batch is much rarer.  
+The repetition is actually necessary, supposed the model sees "to be or not to be" once, have one gradient update, then never again. The model would not learn that pattern well, but if in training the model sees similar examples multiple times, the accuracy will improve
