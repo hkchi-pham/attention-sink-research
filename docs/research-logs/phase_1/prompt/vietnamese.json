@@ -1,0 +1,62 @@
+{
+  "question": [
+    "Tại sao bầu trời có màu xanh?",
+    "Máy học hoạt động như thế nào?",
+    "Vì sao nước biển có vị mặn?",
+    "Internet được truyền dữ liệu bằng cách nào?",
+    "Con người có thể sống trên sao Hỏa không?",
+    "Tại sao lá cây chuyển màu vào mùa thu?",
+    "Trí tuệ nhân tạo khác gì học máy?",
+    "Vì sao cầu vồng xuất hiện sau mưa?",
+    "Máy tính lưu trữ dữ liệu như thế nào?",
+    "Năng lượng mặt trời được tạo ra bằng cách nào?"
+  ],
+  "story": [
+    "Ngày xửa ngày xưa có một cậu bé sống trong ngôi làng nằm giữa những ngọn núi.",
+    "Một cô bé vô tình tìm thấy chiếc chìa khóa mở ra khu vườn bí mật.",
+    "Một con mèo hoang quyết định bắt đầu cuộc hành trình tìm chủ nhân mới.",
+    "Chiếc đồng hồ cũ trong căn gác mái bỗng nhiên chạy ngược thời gian.",
+    "Một nhà khoa học phát hiện loài cây có thể phát sáng trong bóng tối.",
+    "Một con rồng già bảo vệ thư viện cổ suốt hàng trăm năm.",
+    "Chiếc thuyền nhỏ trôi đến hòn đảo chưa từng xuất hiện trên bản đồ.",
+    "Một học sinh nhận được lá thư đến từ chính mình trong tương lai.",
+    "Người gác hải đăng nhìn thấy ánh sáng kỳ lạ giữa biển đêm.",
+    "Một chú chim nhỏ bay khắp thế giới để tìm bài hát đẹp nhất."  
+  ],
+  "code": [
+    "Viết hàm Python tính giai thừa của một số nguyên.",
+    "Giải thích thuật toán tìm kiếm nhị phân.",
+    "Viết chương trình Java đảo ngược chuỗi ký tự.",
+    "Cài đặt thuật toán Quick Sort bằng Python.",
+    "Tìm lỗi trong chương trình Fibonacci đệ quy.",
+    "Giải thích độ phức tạp của Merge Sort.",
+    "Viết hàm kiểm tra chu trình trong danh sách liên kết.",
+    "Cài đặt thuật toán DFS trên đồ thị.",
+    "Viết câu lệnh SQL tìm năm nhân viên có lương cao nhất.",
+    "Giải thích cách bảng băm xử lý va chạm."
+  ],
+  "list": [
+    "Liệt kê mười loại trái cây phổ biến.",
+    "Liệt kê năm nguồn năng lượng tái tạo.",
+    "Liệt kê mười ngôn ngữ lập trình phổ biến.",
+    "Liệt kê các hành tinh trong Hệ Mặt Trời.",
+    "Liệt kê năm nhà toán học nổi tiếng.",
+    "Liệt kê mười quốc gia ở châu Á.",
+    "Liệt kê các thuật toán học máy phổ biến.",
+    "Liệt kê năm loại đám mây.",
+    "Liệt kê những phát minh quan trọng của thế kỷ hai mươi.",
+    "Liệt kê mười nhà soạn nhạc cổ điển nổi tiếng."
+  ],
+  "gibberish": [
+    "xalimo trevak norilu penka",
+    "moravi zelkon piratu levix",
+    "travika nolumi beraxo kintel",
+    "velkora dinaku sorami pelvo",
+    "lunexa toraki venzilo marvek",
+    "zorami pelnix tavora selkun",
+    "meraku vilton serapi donvek",
+    "karomi telnax voriku pelsan",
+    "narevo solpika tralemi vekor",
+    "pelviko naratu zelvora limax"
+  ]
+}
