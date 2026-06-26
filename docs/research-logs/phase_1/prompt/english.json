@@ -1,62 +1,62 @@
 {
-  question: [
-  "What causes rain?",
-  "Why is the sky blue?",
-  "How does photosynthesis work?",
-  "What is the capital of Canada?",
-  "Why do humans dream?",
-  "How does Wi-Fi transmit data?",
-  "What is quantum computing?",
-  "Why do leaves change color in autumn?",
-  "How does a refrigerator keep food cold?",
-  "What is the difference between AI and machine learning?"
-  ],
-  story: [
-  "Once upon a time, a lonely fox wandered through a quiet forest searching for a place to call home.",
-  "A young inventor discovered an old machine hidden beneath her grandfather's workshop.",
-  "The lighthouse keeper noticed a mysterious ship appearing every full moon.",
-  "On a rainy afternoon, two strangers met inside a tiny bookstore and shared stories.",
-  "A dragon guarded a forgotten library filled with magical books.",
-  "A curious robot woke up in an abandoned city without remembering its purpose.",
-  "A child planted a tiny seed that grew into an enormous glowing tree.",
-  "The last train arrived at midnight carrying only one silent passenger.",
-  "An astronaut found an unexpected message carved into the surface of the Moon.",
-  "A fisherman caught a bottle containing a map to a hidden island."
-  ],
-  code: [
-  "Write a Python function to compute the factorial of an integer.",
-  "Explain how a binary search algorithm works in C++.",
-  "Write a Java program that reverses a string.",
-  "Implement quicksort in Python.",
-  "Find the bug in the following recursive Fibonacci function.",
-  "Explain the time complexity of merge sort.",
-  "Write a function that checks whether a linked list has a cycle.",
-  "Implement depth-first search on a graph.",
-  "Write a SQL query that finds the top five highest-paid employees.",
-  "Explain how hash tables handle collisions."
-  ],
-  list: [
-  "List ten popular programming languages.",
-  "List five renewable energy sources.",
-  "List ten fruits rich in vitamin C.",
-  "List the planets in our solar system.",
-  "List five famous mathematicians.",
-  "List ten countries in Europe.",
-  "List common machine learning algorithms.",
-  "List five types of clouds.",
-  "List important inventions of the twentieth century.",
-  "List ten famous classical composers."  
-  ],
-  gibberish: [
-  "flarbo zintok merva pilon",
-  "trevika nolsen dravik lumor",
-  "brelon vixtra komeli zandor",
-  "plenko ravisa murtok zelmi",
-  "talvex monari zepkin lurov",
-  "nervika soltan brevik zorma",
-  "glenvor taraki mevlon pirax",
-  "zorlix fenora talmin kuvax",
-  "dravon melrix tokani sevra",
-  "vexlin poraka dunori helvak"
-  ]
+  "question": [
+    "What causes rain?",
+    "Why is the sky blue?",
+    "How does photosynthesis work?",
+    "What is the capital of Canada?",
+    "Why do humans dream?",
+    "How does Wi-Fi transmit data?",
+    "What is quantum computing?",
+    "Why do leaves change color in autumn?",
+    "How does a refrigerator keep food cold?",
+    "What is the difference between AI and machine learning?"
+    ],
+  "story": [
+    "Once upon a time, a lonely fox wandered through a quiet forest searching for a place to call home.",
+    "A young inventor discovered an old machine hidden beneath her grandfather's workshop.",
+    "The lighthouse keeper noticed a mysterious ship appearing every full moon.",
+    "On a rainy afternoon, two strangers met inside a tiny bookstore and shared stories.",
+    "A dragon guarded a forgotten library filled with magical books.",
+    "A curious robot woke up in an abandoned city without remembering its purpose.",
+    "A child planted a tiny seed that grew into an enormous glowing tree.",
+    "The last train arrived at midnight carrying only one silent passenger.",
+    "An astronaut found an unexpected message carved into the surface of the Moon.",
+    "A fisherman caught a bottle containing a map to a hidden island."
+    ],
+  "code": [
+    "Write a Python function to compute the factorial of an integer.",
+    "Explain how a binary search algorithm works in C++.",
+    "Write a Java program that reverses a string.",
+    "Implement quicksort in Python.",
+    "Find the bug in the following recursive Fibonacci function.",
+    "Explain the time complexity of merge sort.",
+    "Write a function that checks whether a linked list has a cycle.",
+    "Implement depth-first search on a graph.",
+    "Write a SQL query that finds the top five highest-paid employees.",
+    "Explain how hash tables handle collisions."
+    ],
+  "list": [
+    "List ten popular programming languages.",
+    "List five renewable energy sources.",
+    "List ten fruits rich in vitamin C.",
+    "List the planets in our solar system.",
+    "List five famous mathematicians.",
+    "List ten countries in Europe.",
+    "List common machine learning algorithms.",
+    "List five types of clouds.",
+    "List important inventions of the twentieth century.",
+    "List ten famous classical composers."  
+    ],
+  "gibberish": [
+    "flarbo zintok merva pilon",
+    "trevika nolsen dravik lumor",
+    "brelon vixtra komeli zandor",
+    "plenko ravisa murtok zelmi",
+    "talvex monari zepkin lurov",
+    "nervika soltan brevik zorma",
+    "glenvor taraki mevlon pirax",
+    "zorlix fenora talmin kuvax",
+    "dravon melrix tokani sevra",
+    "vexlin poraka dunori helvak"
+    ]
 }
