@@ -31,7 +31,8 @@ The solution to this is the idea of KV cache:
 Because of the causual attention, token can only attend to the previous tokens, so the computation at the position will stay the same. So we can cache all of those computation so that we only need to compute the new layer every inference.
 
 However, this mechanism break down as we use the sliding window technique.  
-e.g. When you remove the first token from the window, then the computation for the 2nd and 3rd tokens now become "wrong" as it's based on the 1st token. Each window is now a new sequence, hence we need to recompute sttention for all token again.  
+Sliding window defines a different computation. The cached KV are still valid for the computation that originally produced them, but they may no longer match the hidden states that a strict sliding-window recomputation would produce. Reusing them is therefore an approximation whose quality depends on how much those hidden states actually change.  
+If you want the computation to be strictly true regarding the sliding window context, you would have to recompute every part again.
 MUCH SLOWER THAN USING CACHE!!
 
 Some people tried keeping the cache while still using sliding window, as if the 2nd and 3rd,... token can still attend to the first. But the problem is the new token cannot attend to the first token(the paper proposes how this doesn't work).
