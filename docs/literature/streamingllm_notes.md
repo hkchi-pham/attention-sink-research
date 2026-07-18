@@ -89,3 +89,56 @@ to
 does not recreate the attention sink, it only tells the model that these later tokens are at the beginning of the sequence, a situation it was never trained to handle. The model has learned to rely on persistent early tokens, not on the integer value of the position itself.
 
 Key idea: RoPE allows positions to be shifted because only relative distances matter, but the attention sink depends on preserving the original beginning tokens that have remained in the cache since the start of generation.
+
+## Beyond StreamingLLM
+
+StreamingLLM reveals that not all important tokens are semantically meaningful.
+
+Two different notions of importance exist:
+
+- Architectural importance: tokens that stabilize the attention mechanism (e.g., attention sink tokens). These tokens may receive attention from many later queries despite carrying little semantic information.
+- Semantic importance: tokens whose content is needed later (e.g., variable definitions, names, facts, assumptions).
+
+These are independent concepts. A token can be architecturally important without containing useful semantic information, and vice versa.
+
+StreamingLLM retains
+
+[ Sink Tokens ] + [ Recent Sliding Window ]
+
+and discards all middle tokens.
+
+This cache policy is purely position-based.
+
+Although this preserves the attention mechanism, it assumes that all middle tokens are equally disposable. In practice, important semantic information may exist anywhere in the discarded region.
+
+Therefore, StreamingLLM primarily addresses architectural stability, not long-range semantic memory.
+
+An intuitive improvement would be to retain semantically valuable historical tokens instead of selecting tokens solely by position.
+
+However, the fundamental challenge is: Future usefulness is unknown during autoregressive inference.
+
+A token that has received little or no attention so far may become critical thousands of tokens later.
+
+Different cache policies can estimate token importance using different signals.
+
+| Strategy                         | Advantages                                         | Limitations                                               |
+| -------------------------------- | -------------------------------------------------- | --------------------------------------------------------- |
+| Position (StreamingLLM)          | Extremely simple; no extra computation             | Ignores semantic importance                               |
+| Accumulated attention            | Measures historical usage; inexpensive to maintain | Favors attention sinks and frequently attended tokens     |
+| Exponential Moving Average (EMA) | Emphasizes recent usage                            | May gradually forget historically important tokens        |
+| Maximum attention                | Captures strong interactions                       | Sensitive to isolated spikes; may overestimate importance |
+| Learned predictor                | Potentially estimates semantic usefulness          | Requires training data and additional computation         |
+
+
+StreamingLLM intentionally solves a narrow problem: preserve stable attention behaviour while maintaining constant-memory inference.
+
+It does not attempt to solve optimal long-range memory retention. A more general cache policy could combine multiple types of information, for example:
+
+Cache =
+    Sink Tokens
+  + Recent Window
+  + Selected Historical Tokens
+
+where historical tokens are selected using an estimate of future usefulness rather than position alone.
+
+Designing such an importance metric remains an active research problem because semantic usefulness cannot be directly observed during streaming inference.
