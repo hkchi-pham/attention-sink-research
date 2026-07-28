@@ -1,5 +1,5 @@
 """
-phase3_utils.py -- shared helpers for Phase 3 of the attention-sink project.
+phase31_utils.py -- shared helpers for Phase 3 of the attention-sink project.
 
 Single-file, flattened build of the validated ``attn_sink`` package so it can be
 dropped into the Drive project folder the way Phase 1 used ``sink_lib.py`` and
